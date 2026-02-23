@@ -3,10 +3,9 @@
 A scalable and secure Project Management System REST API built using TypeScript, Node.js, Express, and MongoDB.
 This backend provides authentication, project handling, task management, and team collaboration features.
 
-📌 Features
+# 📌 Features
 
-🔐 JWT Authentication & Authorization
-
+- 🔐 JWT Authentication & Authorization
 - 👤 Role-Based Access Control (Admin, Manager, Member)
 - 📁 Project Management (CRUD)
 - ✅ Task Management with Priority & Status
@@ -14,3 +13,30 @@ This backend provides authentication, project handling, task management, and tea
 - 📊 Dashboard Statistics (Projects & Tasks)
 - 🛡 Password Hashing with Bcrypt
 - ⚡ Clean Architecture with TypeScript
+
+# 🛠 Tech Stack
+
+- TypeScript
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+- JWT (jsonwebtoken)
+- Bcrypt
+- dotenv
+
+```base
+📂 Project Structure
+src/
+ ├── app.ts
+ ├── server.ts
+ ├── config/
+ │    └── db.ts
+ ├── modules/
+ │    ├── user/
+ │    ├── project/
+ │    ├── task/
+ ├── middlewares/
+ ├── routes/
+ └── utils/
+```
