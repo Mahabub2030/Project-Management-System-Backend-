@@ -5,7 +5,8 @@ This backend provides authentication, project handling, task management, and tea
 
 📌 Features
 
-- 🔐 JWT Authentication & Authorization
+🔐 JWT Authentication & Authorization
+
 - 👤 Role-Based Access Control (Admin, Manager, Member)
 - 📁 Project Management (CRUD)
 - ✅ Task Management with Priority & Status
