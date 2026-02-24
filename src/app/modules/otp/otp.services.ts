@@ -2,7 +2,7 @@ import crypto from "crypto";
 import httpStatus from "http-status";
 import { redisClient } from "../../config/redis.config";
 import AppError from "../../errorHelpers/AppError";
-import { sendMail } from "../../utils/sendEmail";
+import { sendEmail } from "../../utils/sendEmail";
 import { User } from "../user/user.model";
 
 const OTP_EXPIRATION = 2 * 60;
@@ -28,7 +28,7 @@ const sendOTP = async (email: string) => {
       value: OTP_EXPIRATION,
     },
   });
-  await sendMail({
+  await sendEmail({
     to: email,
     subject: "Your OTP Code",
     templateName: "otp",
@@ -54,6 +54,7 @@ const verifyOTP = async (email: string, otp: string) => {
   if (saveOtp !== otp) {
     throw new AppError(401, "Invalid OTP");
   }
+
   await Promise.all([
     User.updateOne({ email: email }, { isVerified: true }),
     redisClient.del(redisKey),
