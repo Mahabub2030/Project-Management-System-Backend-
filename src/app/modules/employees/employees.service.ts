@@ -1,4 +1,6 @@
 import { QueryBuilder } from "../../utils/QueryBuilder";
+import { ShiftSchedule } from "../Schedule/Schedule.model";
+
 import { employeeSearchableFields } from "./employee.constant";
 import { IEmployee } from "./employee.interface";
 import { Employee } from "./employee.model";
@@ -12,7 +14,17 @@ const createEmployee = async (payload: IEmployee) => {
     throw new Error("This employee already exists");
   }
   const employee = await Employee.create(payload);
-  // console.log(payload);
+
+  await ShiftSchedule.create({
+    employeeId: employee.employeeId,
+    SAPNumber: employee.SAPNumber,
+    shiftType: "A", // Defaulting to Shift A
+    date: new Date(), // Setting today as the start date
+    startTime: new Date().setHours(6, 0, 0, 0), // Default 06:00 AM
+    endTime: new Date().setHours(14, 0, 0, 0), // Default 02:00 PM
+    notes: "Default shift assigned upon account creation.",
+  });
+
   return employee;
 };
 

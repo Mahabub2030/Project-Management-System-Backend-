@@ -3,6 +3,7 @@ import { AuthRoutes } from "../modules/auth/auth.route";
 
 import { EmployeeRoutes } from "../modules/employees/employee.route";
 import otpRoute from "../modules/otp/otp.route";
+import { SchedulRoutes } from "../modules/Schedule/schedule.route";
 import { UserRoutes } from "../modules/user/user.route";
 
 export const router = Router();
@@ -20,6 +21,10 @@ const moduleRoutes = [
   {
     path: "/employees",
     route: EmployeeRoutes,
+  },
+  {
+    path: "/schedules",
+    route: SchedulRoutes,
   },
   {
     path: "/otp",
